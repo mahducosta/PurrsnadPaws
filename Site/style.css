@@ -117,7 +117,7 @@ header{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 5rem; 
+    gap: 10rem; 
     
 }
 .img-container{
@@ -201,4 +201,53 @@ header{
 }
 
 
+/* LOGIN */ 
+
+.pagina-login{
+    background: linear-gradient(to bottom right, var(--bg-color),var(--main-color), #F5DDE1 );
+}
+
+.container-login{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+}
+
+.card-login{
+    height: 500px;
+    width: 500px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+
+}
+
+.card-login:hover{
+    transform: scale(1.01);
+}
+.header-login{
+    height: 40%;
+    position: relative;
+    background: var(--bg-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-login {
+    height: 100px;
+    width: 200px;
+}
+
+.formulario-login{
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
