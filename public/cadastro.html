@@ -36,19 +36,19 @@
               <div class="campo">
                 <div class="input">
                   <span>Nome:</span>
-                  <input id="ipt_nome" type="text" placeholder="Seu nome"/>
+                  <input id="ipt_nome" value="caio" type="text" placeholder="Seu nome"/>
                 </div>
               </div>
               <div class="campo">
                 <div class="input">
                   <span>E-mail:</span>
-                  <input id="ipt_email" type="email" placeholder="meuemail@exemplo.com" required />
+                  <input id="ipt_email" value="c" type="email" placeholder="meuemail@exemplo.com" required />
                 </div>
               </div>
               <div class="campo">
                 <div class="input">
                   <span>Data de Nascimento:</span>
-                  <input id="ipt_dtNasc" type="text" placeholder="Informe AAAA-MM-DD" required />
+                  <input id="ipt_dtNasc" value="2005-12-12" type="date" placeholder="Informe AAAA-MM-DD" required />
                 </div>
               </div>
               <div class="campo">
@@ -57,14 +57,14 @@
                   <select id="slt_resposta">
                     <option value="#" disabled selected>Selecionar uma resposta</option>
                     <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="2" selected>Não</option>
                   </select>
                 </div>
               </div>
               <div class="campo">
                 <div class="input">
                   <span>Senha:</span>
-                  <input id="ipt_senha" type="password" placeholder="******" required />
+                  <input id="ipt_senha" value="123" type="password" placeholder="******" required />
                 </div>
               </div>
               <br>
@@ -170,24 +170,22 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          // cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          // mensagem_erro.innerHTML =
+          //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
             window.location = "login.html";
           }, "2000");
 
-          limparFormulario();
-          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        // finalizarAguardar();
       });
 
     return false;

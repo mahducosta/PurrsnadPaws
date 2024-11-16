@@ -10,9 +10,7 @@
 
 </head>
 <body>
-
 <body>
-
     <header>
         <a href="#" class="logo"> 
         <img src="" alt="">
@@ -50,7 +48,7 @@
                   </div>
                 </div>
                 <button class="botao" onclick="entrar()">
-                  <span>Cadastrar</span>
+                  <span>Entrar</span>
                 </button>
                 <p class="p-formulario">
                   Não tem conta? <a href="cadastro.html">Cadastre-se</a>
@@ -95,9 +93,9 @@ function entrar() {
             finalizarAguardar();
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -137,7 +135,6 @@ function entrar() {
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
                 });
             }
 
@@ -148,8 +145,8 @@ function entrar() {
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
 
 </script>

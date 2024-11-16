@@ -43,20 +43,16 @@
 
             <div id="opcoes" class="flex-colunar padding-8">
                 <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaGato" />
                     <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
                 </span>
                 <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaCachorro" />
                     <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
                 </span>
                 <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaNeutra" />
                     <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-                <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
                 </span>
             </div>
 
@@ -73,34 +69,101 @@
 
 </html>
 <script>
+
+    <div>lista_de_questoes[0].pergunta</div>
+    <div> // percorrer lista_de_questoes[0].respostas
+        <div>
+            passar um tempo com a família ou amigos // lista_de_questoes[0].respostas[1].texto 
+        </div>    
+    </div>
+
+    const lista_de_questoes = [
+        {
+            pergunta: "O que você prefere fazer no tempo livre?",
+            respostas: [
+                {
+                    categoria: "gato",
+                    texto: "dormir ou maratona series"
+                }, 
+                {
+                    categoria: "cachorro",
+                    texto: "passar um tempo com a família ou amigos"
+                }, 
+                {
+                    categoria: "neutro",
+                    texto: "cozinha, pintar, escrever, jogar, etc"
+                }, 
+            ],
+        }, // 1 
+        {}, // 2 
+        {}, // 3 
+        {}, // 4 
+    ]
+
+
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
-            alternativaCorreta: "alternativaC"
+            pergunta: "O que você prefere fazer no tempo livre?",
+            alternativaGato: "dormir ou maratona series",
+            alternativaCachorro: "passar um tempo com a família ou amigos",
+            alternativaNeutra: "cozinha, pintar, escrever, jogar, etc."
         },
 
         {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            pergunta: "Você se considera?",
+            alternativaGato: "introvertido",
+            alternativaCachorro: "extrovertido ",
+            alternativaNeutra: "ambivertido"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: "Você age de acordo com?",
+            alternativaCachorro: "emoção",
+            alternativaGato: "razão"
+        },
+        {
+            pergunta: "Você faz amigos com facilidade?",
+            alternativaCachorro: "Sim",
+            alternativaGato: "não",
+            alternativaNeutra: "As vezes"
+        },
+        {
+            pergunta: "Qual característica te define?",
+            alternativaCachorro: "Agitado",
+            alternativaGato: "preguiçoso"
+        },
+        {
+            pergunta: "Você se considera independente?",
+            alternativaCachorro: "Sim",
+            alternativaGato: "não"
+        },
+        {
+            pergunta: "Em companhia, você prefere?",
+            alternativaCachorro: "Cinema, jantar, museus, etc",
+            alternativaGato: "Festas, Viagens, praticar esportes, etc",
+
+        },
+        {
+            pergunta: "Você tem facilidade em fazer amigos?",
+            alternativaCachorro: "Sim",
+            alternativaGato: "Não",
+
+        },
+        {
+            pergunta: "Como você se sente em ambientes com muita gente? ",
+            alternativaCachorro: "Gosto de socializar e estar no meio da confusão",
+            alternativaGato: "Prefiro ficar em um cantinho, longe do agito",
+
+        },
+        {
+            pergunta: "O que você mais valoriza em uma relação?",
+            alternativaCachorro: "Companheirismo e carinho constante",
+            alternativaGato: "Autonomia e respeito pelo espaço pessoal",
+
         }
+
+
 
     ]
 
@@ -141,10 +204,9 @@
         console.log(questaoAtual)
         document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
-        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
-        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
-        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaGato;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaCachorro;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaNeutra;
     }
 
     function submeter() {
@@ -176,7 +238,6 @@
         primeiraOpcao.disabled = opcaoEscolhida
         segundaOpcao.disabled = opcaoEscolhida
         terceiraOpcao.disabled = opcaoEscolhida
-        quartaOpcao.disabled = opcaoEscolhida
 
     }
 
@@ -200,43 +261,43 @@
     function tentarNovamente() {
         // atualiza a página
         window.location.reload()
-    }
+    } -
 
-    function checarResposta() {
-        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
-        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+        function checarResposta() {
+            const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+            const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
 
-        const options = document.getElementsByName("option"); // recupera alternativas no html
+            const options = document.getElementsByName("option"); // recupera alternativas no html
 
-        let alternativaCorreta = null // variável para armazenar a alternativa correta
+            let alternativaCorreta = null // variável para armazenar a alternativa correta
 
-        options.forEach((option) => {
-            if (option.value === respostaQuestaoAtual) {
-                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
-                alternativaCorreta = option.labels[0].id
-            }
-        })
+            options.forEach((option) => {
+                if (option.value === respostaQuestaoAtual) {
+                    console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                    alternativaCorreta = option.labels[0].id
+                }
+            })
 
-        // verifica se resposta assinalada é correta
-        options.forEach((option) => {
-            if (option.checked === true && option.value === respostaQuestaoAtual) {
-                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-                pontuacaoFinal++
-                certas++
-                document.getElementById("spanCertas").innerHTML = certas
-                numeroDaQuestaoAtual++
-            } else if (option.checked && option.value !== respostaQuestaoAtual) {
-                const wrongLabelId = option.labels[0].id
+            // verifica se resposta assinalada é correta
+            options.forEach((option) => {
+                if (option.checked === true && option.value === respostaQuestaoAtual) {
+                    document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                    pontuacaoFinal++
+                    certas++
+                    document.getElementById("spanCertas").innerHTML = certas
+                    numeroDaQuestaoAtual++
+                } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                    const wrongLabelId = option.labels[0].id
 
-                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
-                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-                tentativaIncorreta++
-                erradas++
-                document.getElementById("spanErradas").innerHTML = erradas
-                numeroDaQuestaoAtual++
-            }
-        })
-    }
+                    document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                    document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                    tentativaIncorreta++
+                    erradas++
+                    document.getElementById("spanErradas").innerHTML = erradas
+                    numeroDaQuestaoAtual++
+                }
+            })
+        }
 
     function limparCoresBackgroundOpcoes() {
         const options = document.getElementsByName("option");
@@ -271,14 +332,14 @@
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true

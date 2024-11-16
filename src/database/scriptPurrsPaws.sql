@@ -37,4 +37,6 @@ INSERT INTO resposta (resposta) VALUES
 
 select * from usuario;
 
+drop table usuario;
+
 drop DATABASE PURRSANDPAWS;
