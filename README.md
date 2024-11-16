@@ -25,4 +25,19 @@ PORQUE
 npm i
 ``` 
 _O comando acima irá instalar as bibliotecas necessárias para o funcionamento do projeto. As bibliotecas a serem instaladas estão listadas no arquivo **package.json** então é muito importante que este não seja alterado. Será criada uma nova pasta/diretório chamado **node_modules** quando o comando for finalizado, que é onde as bibliotecas estão localizadas. Não altere a pasta/diretório._
-GIT
+
+```
+npm start
+``` 
+
+_O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a sua parametrização feita nos passos anteriores._
+
+6. Para "ver" seu projeto funcionando, acesse em seu navegador o caminho **informado no terminal**.
+
+7. Caso queira parar a execução, tecle **CTRL+C** no terminal em que o projeto está rodando.
+
+## Link Original Usada No Projeto ɞ 𓈒
+
+- https://github.com/BandTec/web-data-viz
+
+1. API construiada para objetivos academicos. Utilizada nesse repositório para implementação do projeto de 1º Semestre na Sptech School. 
