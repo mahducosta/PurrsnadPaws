@@ -37,7 +37,7 @@ SELECT
     r2.resposta as PetUsuario
     from usuario as u
     join resposta as r1
-    on u.fkadocao= r1.idResposta
+    on u.fkadocao = r1.idResposta
     join resposta as r2
     on u.fkPet = r2.idResposta;
 
@@ -62,7 +62,7 @@ SELECT
     GROUP BY r.resposta;
 
 SELECT
-    r.resposta as Interesse,
+    r.resposta as PetUsuario,
     COUNT(*) as total
     from usuario as u
     join resposta as r
