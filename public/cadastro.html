@@ -53,11 +53,23 @@
               </div>
               <div class="campo">
                 <div class="input">
-                  <span>Tem interesse em adotar um pet?</span> <br>
-                  <select id="slt_resposta">
+                  <span>Tem interesse em adotar um pet?</span> 
+                  <select id="slt_interrese">
                     <option value="#" disabled selected>Selecionar uma resposta</option>
                     <option value="1">Sim</option>
-                    <option value="2" selected>Não</option>
+                    <option value="2">Não</option>
+                  </select>
+                </div>
+              </div>
+              <div class="campo">
+                <div class="input">
+                  <span>Você tem Pet? Qual?</span>
+                  <select id="slt_resposta">
+                    <option value="#" disabled selected>Selecionar uma resposta</option>
+                    <option value="3">Gato</option>
+                    <option value="4">Cachorro</option>
+                    <option value="5">Outro</option>
+                    <option value="6">Nenhum</option>
                   </select>
                 </div>
               </div>
@@ -112,6 +124,7 @@
     var emailVar = ipt_email.value;
     var senhaVar = ipt_senha.value;
     var dtNascVar = ipt_dtNasc.value;
+    var interesseVar = slt_interrese.value;
     var respostaVar = slt_resposta.value;
 
     // var confirmacaoSenhaVar = confirmacao_senha_input.value;
@@ -162,7 +175,8 @@
         emailServer: emailVar,
         senhaServer: senhaVar,
         dtNascServer: dtNascVar, 
-        sltResServer: respostaVar
+        sltResServer: respostaVar,
+        sltInterServer: interesseVar
         
       }),
     })
@@ -177,7 +191,7 @@
 
           setTimeout(() => {
             window.location = "login.html";
-          }, "2000");
+          }, "1000");
 
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";

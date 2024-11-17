@@ -4,39 +4,76 @@ USE PURRSANDPAWS;
 
 CREATE TABLE resposta(
     idResposta INT PRIMARY KEY AUTO_INCREMENT,
-    resposta char(3),
-    constraint chkreposta check (resposta in ('sim', 'nao')) 
+    resposta VARCHAR(20)
 );
 CREATE TABLE usuario(
-    idUsuario int PRIMARY KEY AUTO_INCREMENT,
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
     email VARCHAR(255),
     dtNasc DATE,
     senha VARCHAR(255),
-    fkResposta int,
-    constraint fkusuarioresposta FOREIGN KEY (fkResposta) references resposta (idResposta)
+    fkadocao INT,
+    fkPet INT,
+    CONSTRAINT fkusuariopet FOREIGN KEY (fkPet) REFERENCES resposta (idResposta),
+    CONSTRAINT fkusuarioadocao FOREIGN KEY (fkAdocao) REFERENCES resposta (idResposta)
 );
-
-CREATE TABLE pet(
-    idUsuario int AUTO_INCREMENT,
-    tipo VARCHAR(45) not NULL,
-    adotado char(3) not NULL,
-    dtNasc DATE not NULL,
-    porte VARCHAR(45),
-    descricao VARCHAR(300),
-    atividadesRecentes VARCHAR(300),
-    Fkusuario int,
-    constraint fkpetUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
-    constraint pkComposta PRIMARY KEY (idUsuario, Fkusuario),
-);
-
 
 INSERT INTO resposta (resposta) VALUES
 ('sim'),
-('nao');
+('nao'),
+('Gato'),
+('Cachorro'),
+('Outro'),
+('Nenhum');
+
+
+SELECT  
+    u.idUsuario as IdUsuario,
+    u.nome as Nome,
+    u.email as Email,
+    u.dtNasc as DtNascimento,
+    u.senha as Senha,
+    r1.resposta as InteresseAdoção,
+    r2.resposta as PetUsuario
+    from usuario as u
+    join resposta as r1
+    on u.fkadocao= r1.idResposta
+    join resposta as r2
+    on u.fkPet = r2.idResposta;
+
+SELECT 
+    nome, 
+    dtnasc, 
+    TIMESTAMPDIFF(YEAR, dtnasc, CURDATE()) AS idade
+    FROM usuario;
+
+SELECT
+    TRUNCATE(AVG(TIMESTAMPDIFF(YEAR, dtnasc, CURDATE())),0) as MediaIdade
+    FROM usuario;
+
+
+
+SELECT
+    r.resposta as Interesse,
+    COUNT(*) as total
+    from usuario as u
+    join resposta as r
+    on u.fkadocao = r.idResposta
+    GROUP BY r.resposta;
+
+SELECT
+    r.resposta as Interesse,
+    COUNT(*) as total
+    from usuario as u
+    join resposta as r
+    on u.fkpet = r.idResposta
+    GROUP BY r.resposta;
+
+
+select * from resposta;
 
 select * from usuario;
 
-drop table usuario;
+drop table resposta;
 
 drop DATABASE PURRSANDPAWS;

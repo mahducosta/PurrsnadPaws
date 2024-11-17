@@ -1,4 +1,4 @@
-# Purrs-Paws ɞ 𓈒 ۫˙๑
+# Purrs-Paws ɞ 𓈒 ۫
 
 ## Descrição 
 OBJETIVO
@@ -36,7 +36,7 @@ _O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a 
 
 7. Caso queira parar a execução, tecle **CTRL+C** no terminal em que o projeto está rodando.
 
-## Link Original Usada No Projeto ɞ 𓈒
+## Link Original Da API usada No Projeto ɞ 𓈒
 
 - https://github.com/BandTec/web-data-viz
 
