@@ -1,5 +1,6 @@
 var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
+var id = 0;
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -49,7 +50,7 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var dtNasc = req.body.dtNascServer;
-    var select_resposta = req.body.sltResServer;
+    var select_pet = req.body.sltResServer;
     var select_interrese = req.body.sltInterServer;
 
     // Faça as validações dos valores
@@ -64,10 +65,29 @@ function cadastrar(req, res) {
     else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, dtNasc, senha, select_interrese, select_resposta)
+        usuarioModel.cadastrar(nome, email, dtNasc, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
+
+                    usuarioModel.selecionarUsuario(email, senha) 
+                    .then(
+                        function (resultadoSelect) {
+                            id = resultadoSelect[0].idUsuario;
+
+                            usuarioModel.insertResposta(id, select_interrese, select_pet)
+                            .catch(
+                                function (erro) {
+                                    console.log(erro);
+                                    console.log(
+                                        "\nHouve um erro ao inserir o cadastro da resposta! Erro: ",
+                                        erro.sqlMessage
+                                    );
+                                    res.status(500).json(erro.sqlMessage);
+                                }
+                            );
+                        }
+                    )
                 }
             ).catch(
                 function (erro) {
@@ -81,8 +101,8 @@ function cadastrar(req, res) {
             );
     }
 }
-
+// select_interrese, select_resposta
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
 }

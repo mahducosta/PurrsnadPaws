@@ -70,110 +70,154 @@
 </html>
 <script>
 
-    <div>lista_de_questoes[0].pergunta</div>
-    <div> // percorrer lista_de_questoes[0].respostas
-        <div>
-            passar um tempo com a família ou amigos // lista_de_questoes[0].respostas[1].texto 
-        </div>    
-    </div>
+    var listaNomes = ['caio', 'diniz', 'feitosa'];
+    var listaIdades = [19, 19, 18];
+
+    var cu = {
+        nomes: listaNomes,
+        idades: listaIdades,
+    }
+
+    // <div>lista_de_questoes[0].pergunta</div>
+    // <div> // percorrer lista_de_questoes[0].respostas
+    //     <div>
+    //         passar um tempo com a família ou amigos // lista_de_questoes[0].respostas[1].texto 
+    //     </div>    
+    // </div>
 
     const lista_de_questoes = [
-        {
-            pergunta: "O que você prefere fazer no tempo livre?",
-            respostas: [
-                {
-                    categoria: "gato",
-                    texto: "dormir ou maratona series"
-                }, 
-                {
-                    categoria: "cachorro",
-                    texto: "passar um tempo com a família ou amigos"
-                }, 
-                {
-                    categoria: "neutro",
-                    texto: "cozinha, pintar, escrever, jogar, etc"
-                }, 
-            ],
-        }, // 1 
-        {}, // 2 
-        {}, // 3 
-        {}, // 4 
-    ]
+    {
+        pergunta: "O que você prefere fazer no tempo livre?",
+        respostas: [
+            {
+                categoria: "gato",
+                texto: "dormir ou maratona series"
+            }, 
+            {
+                categoria: "cachorro",
+                texto: "passar um tempo com a família ou amigos"
+            }, 
+     
+        ]
+    }, // 1 
+    {
+        pergunta: "O que você se considera mais?",
+        respostas: [
+            {
+                categoria: "gato",
+                texto: "introvertido"
+            }, 
+            {
+                categoria: "cachorro",
+                texto: "passar um tempo com a família ou amigos"
+            }, 
+     
+        ]
+    }, // 2 
+    {
+        pergunta: "Você age de acordo com?",
+        respostas: [
+            {
+                categoria: "gato",
+                texto: "razão"
+            }, 
+            {
+                categoria: "cachorro",
+                texto: "emoção"
+            }, 
+     
+        ]
+    }, // 3 
+    {    pergunta: "Você faz amigos com facilidade?",
+        respostas: [
+            {
+                categoria: "cachorro",
+                texto: "Sim"
+            }, 
+            {
+                categoria: "Gato",
+                texto: "Não"
+            }, 
+     
+        ]
+    }, // 4 
+    {    pergunta: "Qual característica te define?",
+        respostas: [
+            {
+                categoria: "gato",
+                texto: "preguiçoso"
+            }, 
+            {
+                categoria: "cachorro",
+                texto: "Agitado"
+            }, 
+     
+        ]
+    }, // 5
+    {    pergunta: "Você se considera independente?",
+        respostas: [
+            {
+                categoria: "Sim",
+                texto: "não"
+            }, 
+            {
+                categoria: "cachorro",
+                texto: "emoção"
+            }, 
+     
+        ]
+    }, // 6 
+    {
+        pergunta: "Em companhia, você prefere?",
+        respostas: [
+            {
+                categoria: "gato",
+                texto: "Cinema, jantar, museus, etc"
+            }, 
+            {
+                categoria: "cachorro",
+                texto: "Festas, Viagens, praticar esportes, etc"
+            }, 
+     
+        ]
 
-
-    const listaDeQuestoes = [
-
-        {
-            pergunta: "O que você prefere fazer no tempo livre?",
-            alternativaGato: "dormir ou maratona series",
-            alternativaCachorro: "passar um tempo com a família ou amigos",
-            alternativaNeutra: "cozinha, pintar, escrever, jogar, etc."
-        },
-
-        {
-            pergunta: "Você se considera?",
-            alternativaGato: "introvertido",
-            alternativaCachorro: "extrovertido ",
-            alternativaNeutra: "ambivertido"
-        },
-
-        {
-            pergunta: "Você age de acordo com?",
-            alternativaCachorro: "emoção",
-            alternativaGato: "razão"
-        },
-        {
-            pergunta: "Você faz amigos com facilidade?",
-            alternativaCachorro: "Sim",
-            alternativaGato: "não",
-            alternativaNeutra: "As vezes"
-        },
-        {
-            pergunta: "Qual característica te define?",
-            alternativaCachorro: "Agitado",
-            alternativaGato: "preguiçoso"
-        },
-        {
-            pergunta: "Você se considera independente?",
-            alternativaCachorro: "Sim",
-            alternativaGato: "não"
-        },
-        {
-            pergunta: "Em companhia, você prefere?",
-            alternativaCachorro: "Cinema, jantar, museus, etc",
-            alternativaGato: "Festas, Viagens, praticar esportes, etc",
-
-        },
-        {
-            pergunta: "Você tem facilidade em fazer amigos?",
-            alternativaCachorro: "Sim",
-            alternativaGato: "Não",
-
-        },
-        {
-            pergunta: "Como você se sente em ambientes com muita gente? ",
-            alternativaCachorro: "Gosto de socializar e estar no meio da confusão",
-            alternativaGato: "Prefiro ficar em um cantinho, longe do agito",
-
-        },
-        {
-            pergunta: "O que você mais valoriza em uma relação?",
-            alternativaCachorro: "Companheirismo e carinho constante",
-            alternativaGato: "Autonomia e respeito pelo espaço pessoal",
-
-        }
-
-
-
-    ]
-
+    }, // 7 
+    {
+        pergunta: "Como você se sente em ambientes com muita gente?",
+        respostas: [
+            {
+                categoria: "gato",
+                texto: "Prefiro ficar em um cantinho, longe do agito"
+            }, 
+            {
+                categoria: "cachorro",
+                texto: "Gosto de socializar e estar no meio da confusão"
+            }, 
+     
+        ]
+    }, // 8
+    {
+        pergunta: "O que você mais valoriza em uma relação?",
+        respostas: [
+            {
+                categoria: "gato",
+                texto: "Autonomia e respeito pelo espaço pessoal"
+            }, 
+            {
+                categoria: "cachorro",
+                texto: "Companheirismo e carinho constante"
+            }, 
+     
+        ]
+    }
+]
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
     let pontuacaoFinal = 0
     let tentativaIncorreta = 0
     let certas = 0
     let erradas = 0
-    let quantidadeDeQuestoes = listaDeQuestoes.length
+    let quantidadeDeQuestoes = lista_de_questoes.length
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
@@ -198,7 +242,7 @@
 
    function preencherHTMLcomQuestaoAtual(index) {
         habilitarAlternativas(true)
-        const questaoAtual = listaDeQuestoes[index]
+        const questaoAtual = lista_de_questoes[index]
         numeroDaQuestaoAtual = index
         console.log("questaoAtual")
         console.log(questaoAtual)
@@ -206,7 +250,6 @@
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
         document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaGato;
         document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaCachorro;
-        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaNeutra;
     }
 
     function submeter() {

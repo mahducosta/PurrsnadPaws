@@ -4,27 +4,22 @@ USE PURRSANDPAWS;
 
 CREATE TABLE resposta(
     idResposta INT PRIMARY KEY AUTO_INCREMENT,
-    resposta VARCHAR(20)
+    interesse char(3),
+    constraint chkinteresse check (interesse in ('Sim', 'Não')),
+    pet varchar(45),
+    fkUsuario int,
+    constraint fkrespostaUsuario Foreign Key (fkUsuario) REFERENCES usuario (idUsuario)
 );
 CREATE TABLE usuario(
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
     email VARCHAR(255),
     dtNasc DATE,
-    senha VARCHAR(255),
-    fkadocao INT,
-    fkPet INT,
-    CONSTRAINT fkusuariopet FOREIGN KEY (fkPet) REFERENCES resposta (idResposta),
-    CONSTRAINT fkusuarioadocao FOREIGN KEY (fkAdocao) REFERENCES resposta (idResposta)
+    senha VARCHAR(255)
 );
 
-INSERT INTO resposta (resposta) VALUES
-('sim'),
-('nao'),
-('Gato'),
-('Cachorro'),
-('Outro'),
-('Nenhum');
+INSERT INTO resposta (interesse, pet, fkUsuario) VALUES
+
 
 
 SELECT  

@@ -56,8 +56,8 @@
                   <span>Tem interesse em adotar um pet?</span> 
                   <select id="slt_interrese">
                     <option value="#" disabled selected>Selecionar uma resposta</option>
-                    <option value="1">Sim</option>
-                    <option value="2">Não</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
                   </select>
                 </div>
               </div>
@@ -66,10 +66,10 @@
                   <span>Você tem Pet? Qual?</span>
                   <select id="slt_resposta">
                     <option value="#" disabled selected>Selecionar uma resposta</option>
-                    <option value="3">Gato</option>
-                    <option value="4">Cachorro</option>
-                    <option value="5">Outro</option>
-                    <option value="6">Nenhum</option>
+                    <option value="Gato">Gato</option>
+                    <option value="Cachorro">Cachorro</option>
+                    <option value="Outro">Outro</option>
+                    <option value="Nenhum">Nenhum</option>
                   </select>
                 </div>
               </div>
@@ -132,22 +132,22 @@
 
     // Verificando se há algum campo em branco
 
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      dtNascVar == "" 
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+    // if (
+    //   nomeVar == "" ||
+    //   emailVar == "" ||
+    //   senhaVar == "" ||
+    //   confirmacaoSenhaVar == "" ||
+    //   dtNascVar == "" 
+    // ) {
+    //   cardErro.style.display = "block";
+    //   mensagem_erro.innerHTML =
+    //     "(Mensagem de erro para todos os campos em branco)";
 
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
+    //   finalizarAguardar();
+    //   return false;
+    // } else {
+    //   setInterval(sumirMensagem, 5000);
+    // }
 
     // Verificando se o código de ativação é de alguma empresa cadastrada
     // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
