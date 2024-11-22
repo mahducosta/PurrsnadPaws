@@ -47,22 +47,23 @@ SELECT
     FROM usuario;
 
 
+SELECT
+    COUNT(fkUsuario) as total,
+    r.interesse as adoção
+    from resposta as r
+    JOIN usuario as u
+    on r.fkusuario = u.idUsuario
+    GROUP BY r.interesse;
 
 SELECT
-    r.resposta as Interesse,
-    COUNT(*) as total
-    from usuario as u
-    join resposta as r
-    on u.fkadocao = r.idResposta
-    GROUP BY r.resposta;
+    COUNT(fkUsuario) as total,
+    r.pet as pet
+    from resposta as r
+    JOIN usuario as u
+    on r.fkusuario = u.idUsuario
+    GROUP BY r.pet;
 
-SELECT
-    r.resposta as PetUsuario,
-    COUNT(*) as total
-    from usuario as u
-    join resposta as r
-    on u.fkpet = r.idResposta
-    GROUP BY r.resposta;
+
 
 
 select * from resposta;
@@ -72,3 +73,4 @@ select * from usuario;
 drop table resposta;
 
 drop DATABASE PURRSANDPAWS;
+

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/sessao.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body onload="atualizarQuiz()">
+    <header>
+        <a href="#" class="logo"> 
+        <img src="" alt="">
+        <span class="purrs">Purrs</span> <span class="paws">& Paws</span>
+        </a>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        
+        <div class="botoes">
+            <button onclick="limparSessao()" class="cadastro">Sair</button>
+        </div>
+    </header>
+
+    
+    <div id="div_pergunta"></div>
+    <div id="div_respostas"></div>
+    <button onclick="prox()">próximo</button>
+</body>
+
+</html>
+
+<script>
+    var indice_pergunta_atual = 0;
+
+    const lista_de_questoes = [
+        {
+            pergunta: "O que você prefere fazer no tempo livre?",
+            respostas: [
+                {
+                    categoria: "gato",
+                    texto: "dormir ou maratona series"
+                },
+                {
+                    categoria: "cachorro",
+                    texto: "passar um tempo com a família ou amigos"
+                },
+
+            ]
+        }, // 1 
+        {
+            pergunta: "O que você se considera mais?",
+            respostas: [
+                {
+                    categoria: "gato",
+                    texto: "introvertido"
+                },
+                {
+                    categoria: "cachorro",
+                    texto: "passar um tempo com a família ou amigos"
+                },
+
+            ]
+        }, // 2 
+        {
+            pergunta: "Você age de acordo com?",
+            respostas: [
+                {
+                    categoria: "gato",
+                    texto: "razão"
+                },
+                {
+                    categoria: "cachorro",
+                    texto: "emoção"
+                },
+
+            ]
+        }, // 3 
+        {
+            pergunta: "Você faz amigos com facilidade?",
+            respostas: [
+                {
+                    categoria: "cachorro",
+                    texto: "Sim"
+                },
+                {
+                    categoria: "Gato",
+                    texto: "Não"
+                },
+
+            ]
+        }, // 4 
+        {
+            pergunta: "Qual característica te define?",
+            respostas: [
+                {
+                    categoria: "gato",
+                    texto: "preguiçoso"
+                },
+                {
+                    categoria: "cachorro",
+                    texto: "Agitado"
+                },
+
+            ]
+        }, // 5
+        {
+            pergunta: "Você se considera independente?",
+            respostas: [
+                {
+                    categoria: "Sim",
+                    texto: "não"
+                },
+                {
+                    categoria: "cachorro",
+                    texto: "sim"
+                },
+
+            ]
+        }, // 6 
+        {
+            pergunta: "Em companhia, você prefere?",
+            respostas: [
+                {
+                    categoria: "gato",
+                    texto: "Cinema, jantar, museus, etc"
+                },
+                {
+                    categoria: "cachorro",
+                    texto: "Festas, Viagens, praticar esportes, etc"
+                },
+
+            ]
+
+        }, // 7 
+        {
+            pergunta: "Como você se sente em ambientes com muita gente?",
+            respostas: [
+                {
+                    categoria: "gato",
+                    texto: "Prefiro ficar em um cantinho, longe do agito"
+                },
+                {
+                    categoria: "cachorro",
+                    texto: "Gosto de socializar e estar no meio da confusão"
+                },
+
+            ]
+        }, // 8
+        {
+            pergunta: "O que você mais valoriza em uma relação?",
+            respostas: [
+                {
+                    categoria: "gato",
+                    texto: "Autonomia e respeito pelo espaço pessoal"
+                },
+                {
+                    categoria: "cachorro",
+                    texto: "Companheirismo e carinho constante"
+                },
+
+            ]
+        }
+    ]
+
+
+    function atualizarQuiz() {
+        console.log("questão ATUAL: ", lista_de_questoes[indice_pergunta_atual]);
+
+        div_pergunta.innerHTML = lista_de_questoes[indice_pergunta_atual].pergunta;
+
+        var mensagem = "";
+
+
+        for (var i = 0; i < lista_de_questoes[indice_pergunta_atual].respostas.length; i++) {
+            var resposta_atual = lista_de_questoes[indice_pergunta_atual].respostas[i];
+            console.log("RESPOSTA ATUAL: ", resposta_atual);
+
+            mensagem += `
+            <label>
+                <input id="input_radio_${i}" value="${resposta_atual.categoria}" name="respostas" type="radio" />
+                ${resposta_atual.texto}:     
+            </label> <br>
+        `;
+        }
+
+        div_respostas.innerHTML = mensagem;
+    }
+
+
+    var pontosGato = 0;
+    var pontosCachorro = 0;
+
+    function prox() {
+        for (var i = 0; i < lista_de_questoes[indice_pergunta_atual].respostas.length; i++) {
+            var radioId = `input_radio_${i}`;
+            console.log("radio: ", radioId);
+            var elemento_atual = document.getElementById(radioId);
+
+
+            if (elemento_atual.checked) {
+                atualizarPontos(elemento_atual.value);
+            }
+        }
+
+        // if (input_radio_0.checked) {
+        //     atualizarPontos(input_radio_0.value);
+        // } else if (input_radio_1.checked) {
+        //     atualizarPontos(input_radio_1.value);
+        // }
+
+        indice_pergunta_atual++;
+        atualizarQuiz();
+    }
+
+
+    function atualizarPontos(tipo) {
+        if (tipo == 'cachorro') {
+            pontosCachorro++;
+        } else {
+            pontosGato++;
+        }
+
+        console.log(`
+            Gato: ${pontosGato} 
+            Cachorro: ${pontosCachorro} 
+        `)
+    }
+</script>
