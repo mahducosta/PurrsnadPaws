@@ -3,10 +3,11 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Blog | Purrs & paws</title>
         <link rel="stylesheet" href="css/blog.css">
         <script src="./js/sessao.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body onload="validarAcessoBlog();">
         <header>
@@ -16,11 +17,11 @@
             </a>
             <ul class="nav">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
             <div class="botoes">
-                <button onclick="limparSessao()" class="cadastro">Sair</button>
+                <button onclick="limparSessao();" class="cadastro">Sair</button>
             </div>
         </header>
             <section class="container">
@@ -40,17 +41,30 @@
     <p>Conheça nosso Blog</p> <br>
 </div>
     <div class="blog-nav">
-            <li><a href="eventos.html" class=" blog-button">Eventos</a></li>
+            <li><a href="blog.html" class=" blog-button">Blog</a></li>
             <li><a href="campanhas.html" class=" blog-button">Campanhas</a></li>
             <li><a href="quiz.html" class=" blog-button">Quiz</a></li>
             <li><a href="dashboard.html" class=" blog-button">Dados do Site</a></li>
         </div>
     </div>
     
-    <div class="post">
-        <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam libero laboriosam voluptas repudiandae doloremque quidem, saepe, assumenda nam atque iste quis explicabo aperiam molestias! Dolorum consequatur tenetur molestias nam illo.</h1>
+    <div class="post" id="post-container">
+        <div class="card">
+            <a href="postAbandono.html"><img src="assets/imgs/gato-importanciatema.jpg" alt=""></a>
+            <h3>Abandono de animais: por que é importante falar sobre o tema?</h3>
+        </div>
+        <div class="card">
+            <a href="postGatoLeite"></a><img src="assets/imgs/gato-importanciatema.jpg" alt=""></a>
+            <h3>Gato pode beber leite? Saiba a verdade sobre o mito</h3>
+        </div>
+        <div class="card">
+            <a href=""><img src="assets/imgs/gato-importanciatema.jpg" alt=""></a>
+            <h3>Cachorro pode tomar Yakult? Saiba o que fazer</h3>
+        </div>
+      
     </div>
-</div>      
+</div>
+<script></script>      
 </html>
 <script>
     var idUsuario = sessionStorage.ID_USUARIO;
@@ -62,5 +76,4 @@
     }
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
 </script>

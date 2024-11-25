@@ -17,6 +17,20 @@
     --main-color: #f29eab;
 }
 
+html{
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=82115), auto;
+}
+
+*:hover {
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=82115), auto;
+  }
+
+  /* Cursor ao clicar em qualquer elemento */
+*:active {
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=82115), auto;
+}
+
+
 body{
     background: var(--bg-color) ;
     color: var(--texto-color); 
@@ -39,12 +53,12 @@ header{
     display: inline-block;
 }
 
-.logo .purrs{
-    color: #333; 
+.purrs{
+    color: var(--texto-color); 
     font-weight: bold;
 }
 
-.logo .paws{
+.paws{
     color: #ffb6c1;
     font-weight: bold;
 }
@@ -120,9 +134,62 @@ header{
     gap: 10rem; 
     
 }
+
+.container-sobre{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10rem; 
+    
+}
+
+.container-texto-sobre h1{
+    font-size: 500%;
+    margin: 5px;
+    font-size: 4rem; 
+    margin-bottom: 5px;
+
+ 
+}
+
+.container-texto-sobre h3{
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.container-texto-sobre h5{
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+
+}
+
+.container-texto-sobre p{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400px;
+    line-height: 32px;
+    margin-bottom: 25px;
+
+}
 .img-container{
     padding-top: 8%;
 }
+
+.rodape {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    background-color: #9D8189 ;
+    padding: 1.5%;
+   
+    color: #ffff; 
+  
+  }
 
 .container-texto h1{
     font-size: 500%;
@@ -130,15 +197,6 @@ header{
     font-size: 4rem; 
     margin-bottom: 5px;
 
-    .purrs{
-        color: #333; 
-        font-weight: bold;
-    }
-    
-    .paws{
-        color: #ffb6c1;
-        font-weight: bold;
-    }
 }
 
 .container-texto h3{
@@ -185,8 +243,9 @@ header{
 .sobre {
     background-color: #D8E2DC;
     width: 100%;
-    height: 100vh;
-    padding: 200px;
+    height: 120vh;
+    padding: 10%;
+
 }
 
 .sobre-texto{
@@ -246,6 +305,9 @@ header{
 
 }
 .card-cadastro:hover{
+    transform: scale(1.01);
+}
+.card-login:hover{
     transform: scale(1.01);
 }
 .header-login{
@@ -347,3 +409,118 @@ select:focus {
     text-decoration: underline;
 }
 
+/* pagina Sobre */
+
+.container-sobre{
+    padding-top: 15%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem; 
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20%;
+}
+
+.container-texto-sobre h1{
+    font-size: 500%;
+    margin: 5px;
+    font-size: 4rem; 
+    margin-bottom: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.container-texto-sobre h3{
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.container-texto-sobre h5{
+    padding-top: 1%;
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 10%;
+
+}
+
+
+
+.sobre-mim {
+    background-color: #242021;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8rem;
+    color: #fff;
+    padding: 5%;
+}
+
+.sobre-texto-mim{
+    position: relative;
+    font-size: 24px;
+    
+}
+
+.img-container-eu img{
+    padding: 10%;
+    padding-top: 8%;
+    height: 380px;
+}
+
+/* img-container-links{
+    display: flex;
+    justify-content: center;
+   
+} */
+
+.icone-link img {
+    width: 100%; /* Ajuste o tamanho do ícone conforme necessário */
+    height: auto;
+}
+
+.img-container-links{
+    display: flex;
+    gap: 2rem;
+}
+
+.container-importancia{
+    padding-top: 15%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    gap: 10rem; 
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20%;
+    background-color: #D8E2DC;
+}
+
+.container-texto-importancia h1{
+    font-size: 500%;
+    margin: 5px;
+    font-size: 4rem; 
+    margin-bottom: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.container-texto-importancia h3{
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.container-texto-importancia h5{
+    padding-top: 1%;
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 10%;
+
+}

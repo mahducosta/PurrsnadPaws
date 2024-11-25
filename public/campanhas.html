@@ -3,10 +3,11 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Campanhas | Purrs & paws</title>
         <link rel="stylesheet" href="css/blog.css">
         <script src="./js/sessao.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body onload="validarAcessoBlog();">
         <header>
@@ -16,10 +17,65 @@
             </a>
             <ul class="nav">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="blog.html">Blog</a></li>
             </ul>
             <div class="botoes">
-                <button onclick="limparSessao()" class="cadastro">Sair</button>
+                <button onclick="limparSessao();" class="cadastro">Sair</button>
             </div>
         </header>
+            <section class="container">
+                <div class="container-texto">
+                    <h1>Olá, </h1> 
+                <h1><span id="b_usuario" class="paws">usuário</span>.</h1>
+                <h5>Bem vindo a nossa página de blog dedicada a dicas e informações sobre Pets. <br> Junte-se a nós para explorar histórias, insights e dicas para apoiar nossos amados <br> gatos e cães. </h5>
+            </div>
+            
+            <div class="img-container">
+                <img src="assets/imgs/cat.blog.svg" alt="">
+            </div>
+        </section>
+<div class="blog">
+<div class="header-blog">
+    <div class="banner">
+    <p>Conheça nosso Blog</p> <br>
+</div>
+    <div class="blog-nav">
+            <li><a href="blog.html" class=" blog-button">Blog</a></li>
+            <li><a href="campanhas.html" class=" blog-button">Campanhas</a></li>
+            <li><a href="quiz.html" class=" blog-button">Quiz</a></li>
+            <li><a href="dashboard.html" class=" blog-button">Dados do Site</a></li>
+        </div>
+    </div>
+    
+    <div class="post" id="post-container">
+        <div class="card">
+            <a href="https://capital.sp.gov.br/web/guaianases/w/noticias/35737"><img src="assets/imgs/gato-importanciatema.jpg" alt=""> </a>
+            <h3>A Subprefeitura Guaianases, em São Paulo, realizará uma campanha de castração gratuita para cães e gatos de 10 a 13 de dezembro de 2024.</h3>
+            <br>
+            <p>Endereço: Escola Estadual Prof. Luiz Rosanova, localizada na Av. Miguel Achiole da Fonseca, 1447.</p>
+        </div>
+        <div class="card">
+            <a href="https://www.saoroque.sp.gov.br/castramovel"><img src="assets/imgs/gato-importanciatema.jpg" alt=""></a>
+            <h3>São 230 vagas para a castração gratuita e as inscrições podem ser feitas até o dia 29 de novembro pelo site da prefeitura ou presencialmente nas UBS Guaçu e Taboão</h3>
+            <br>
+            <p>Localizado na Avenida Antônio Maria Picena, 34.</p>
+        </div>
+        <div class="card">
+            <a href="https://www.saopaulo.sp.gov.br/spnoticias/vacina-contra-raiva-esta-disponivel-durante-todo-o-ano-nos-postos-municipais/"><img src="assets/imgs/gato-importanciatema.jpg" alt=""></a>
+            <h3>Vacina contra raiva está disponível durante todo o ano nos postos municipais</h3>
+            <br>
+            <p>Imunização também pode ser feita em clínicas particulares de SP e evita doença em humanos por mais de duas décadas</p>
+        </div>
+        <div class="card">
+            <a href="https://vejasp.abril.com.br/atracao/feiras-de-adocao/"><img src="assets/imgs/gato-importanciatema.jpg" alt=""></a>
+            <h3>
+                Em dezembro de 2024, São Paulo terá diversas feiras de adoção de animais. </h3>
+            <br>
+            <p>Alguns eventos destacados são Cobasi Brooklin, Loja Centro de Adoção (ONG Natureza em Forma), Petz </p>
+        </div>
+    </div>
+</div>
+<script></script>      
+</html>
+<script>

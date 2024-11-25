@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard | Purrs & paws</title>
+    <link rel="stylesheet" href="css/dash.css">
+    <script src="./js/sessao.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="validarAcessoBlog();">
+
+    <header>
+        <a href="#" class="logo">
+            <img src="" alt="">
+            <span class="purrs">Purrs</span> <span class="paws">& Paws</span>
+        </a>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <div class="botoes">
+            <button onclick="limparSessao()" class="cadastro">Sair</button>
+        </div>
+    </header>
+
+    <div class="container-dashboard">
+        <h1>Dados dos Nossos Usuarios </h1>
+        <br>
+        <div class="container-kpi">
+            <div class="kpi">
+                <h1>Usuários Cadastrados</h1>
+
+                <h3 id="kpiUsuarios">88</h3>
+
+            </div>
+            <div class="kpi">
+                <h1>Média de Idade</h1>
+
+                <h3 id="kpiIdade">88</h3>
+
+            </div>
+
+        </div>
+        <div class="container-grafico">
+            <div class="grafico-barra">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="grafico-pizza">
+                <canvas id="myChart1"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const graficoInteresse = document.getElementById('myChart1');
+    var VargraficoInteresse;
+    const graficoPets = document.getElementById('myChart');
+    var VargraficoPets;
+    var VarKPIidade;
+    var VarKPIusuario;
+
+function plotarGrafico() {
+        var totalSim = 0;
+        var totalNao = 0;
+
+        fetch("dashboard/selectGraficoInteresse", { cache: "no-store" })
+            .then((resposta) => {
+
+                resposta.json().then((dados) => {
+                    totalNao = dados[0].total
+                    totalSim = dados[1].total
+
+                    VargraficoInteresse = new Chart(graficoInteresse, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Sim', 'Não'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [totalSim, totalNao],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+            })
+
+        var totalGato = 0;
+        var totalCachorro = 0;
+        var totalOutro = 0;
+        var totalNenhum = 0;
+
+        fetch("dashboard/selectGraficoPet", { cache: "no-store" })
+            .then((resposta) => {
+
+                resposta.json().then((dados) => {
+                    console.log(dados)
+                    totalGato = dados[0].total
+                    totalOutro = dados[1].total
+                    totalCachorro = dados[2].total
+                    totalNenhum = dados[3].total
+
+                    var Gato = dados[0].pet
+                    var Outro = dados[1].pet
+                    var Cachorro = dados[2].pet
+                    var Nenhum = dados[3].pet
+
+                    VargraficoPets = new Chart(graficoPets, {
+                        type: 'bar',
+                        data: {
+                            labels: [Gato, Cachorro, Outro, Nenhum],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [totalGato, totalCachorro, totalOutro, totalNenhum],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+
+            })
+
+    }
+
+function atualizarGrafico() {
+
+        fetch("dashboard/selectGraficoPet", { cache: "no-store" })
+            .then((resposta) => {
+                resposta.json().then((dados) => {
+                    console.log('Dados atualizados: ', dados);
+                    totalGato = dados[0].total
+                    totalOutro = dados[1].total
+                    totalCachorro = dados[2].total
+                    totalNenhum = dados[3].total
+
+                    // Exemplo de novos dados
+                    VargraficoPets.data.datasets[0].data = [totalGato, totalCachorro, totalOutro, totalNenhum];
+
+                    // Atualize o gráfico
+                    VargraficoPets.update();
+                })
+            })
+
+        fetch("dashboard/selectGraficoInteresse", { cache: "no-store" })
+            .then((resposta) => {
+                resposta.json().then((dados) => {
+                    console.log('Dados atualizados: ', dados);
+                    totalNao = dados[0].total
+                    totalSim = dados[1].total
+
+                    // Exemplo de novos dados
+                    VargraficoInteresse.data.datasets[0].data = [totalSim, totalNao];
+
+                    // Atualize o gráfico
+                    VargraficoInteresse.update();
+                })
+            })
+
+    }
+
+    setInterval(atualizarGrafico, 10000);
+    
+function listarKPI() {
+        var kpi_usuarios = document.getElementById("kpiUsuarios");
+        var kpi_idade = document.getElementById("kpiIdade");
+
+
+        fetch("dashboard/selectUsuarios", { cache: "no-store" })
+            .then((resposta) => {
+
+                resposta.json().then((dados) => {
+                    var total = dados[0].total
+
+                    kpi_usuarios.innerHTML = total;
+                })
+            })
+
+        fetch("dashboard/selectMediaIdade", { cache: "no-store" })
+            .then((resposta) => {
+
+                resposta.json().then((dados) => {
+                    var media = dados[0].mediaidade
+
+                    kpi_idade.innerHTML = media
+                })
+            }
+            )
+}
+
+
+setInterval(listarKPI, 10000);
+
+plotarGrafico();
+listarKPI();
+
+</script>

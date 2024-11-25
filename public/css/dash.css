@@ -12,11 +12,24 @@
 }
 
 :root{
-    --bg-color: #7d82b8;
+    --bg-color: #F5DDE1;
     --texto-color: #413539;
     --main-color: #f29eab;
-    --blog-color: #cce6f4;
 }
+
+html{
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=82115), auto;
+}
+
+*:hover {
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=82115), auto;
+  }
+
+  /* Cursor ao clicar em qualquer elemento */
+*:active {
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=82115), auto;
+}
+
 
 body{
     background: var(--bg-color) ;
@@ -25,7 +38,7 @@ body{
 }
 
 header{
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     z-index: 1000;
     padding: 35px;
@@ -41,12 +54,12 @@ header{
     display: inline-block;
 }
 
-.logo .purrs{
-    color: #333; 
+.purrs{
+    color: var(--texto-color); 
     font-weight: bold;
 }
 
-.logo .paws{
+.paws{
     color: #ffb6c1;
     font-weight: bold;
 }
@@ -59,7 +72,7 @@ header{
 .nav a{
     display: inline-block;
     margin: 0 35px;
-    color: #ccc;
+    color: #9D8189;
     transition: all .6s ease;
 }
 
@@ -73,6 +86,7 @@ header{
     font-family: "Montserrat", serif;
     
 }
+
 .cadastro{
     display: inline-block;
     padding: 9px 24px;
@@ -91,129 +105,60 @@ header{
     color: var(--bg-color);
     background: var(--main-color)
 }
-.container{
+
+.container-dashboard{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 5%;
-    padding-top: 5%;
-    
-}
-.container-texto h1{
-    font-size: 500%;
-    margin: 5px;
-    font-size: 4rem;
-    
-    .paws{
-        color: #ffb6c1;
-        font-weight: bold;
-    }
-}
-
-.container-texto h3{
-    font-size: 30px;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-
-.container-texto h5{
-    font-size: 16px;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    margin-bottom: 2%;
-
-}
-
-.container-texto p{
+    flex-wrap: wrap;
+    background-color: #ffff;
     width: 100%;
-    font-size: 20px;
-    font-weight: 400px;
-    line-height: 32px;
-    margin-bottom: 25px;
-
-}
-
-.img-container img {
-    max-width: 100%;
-    height: auto;
-    align-self: center; 
-}
-
-/* BLOG */
-.blog{
-    background-color: #FFEEE7;
-}
-
-.header-blog{
-    background: #fcf9f9;
-    margin-bottom: 20px;
-}
-
-.blog-nav{
-    margin: 0.5rem;
-    padding: 1.5rem;
-    margin-left: 10rem;
-    margin-right: 10rem;
-    display: flex;
-    justify-content: space-evenly;
+    height: 100%;
+    padding: 5%;
     
 }
 
+.container-dashboard h1{
+    margin-bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
 
-.blog-button{
-    display: inline-block;
-    padding: 12px 48px;
-    background: transparent;
+.container-kpi .kpi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25vw;
+    height: 15vh;
+    margin-bottom: 8%;
+    background-color: var(--bg-color);
     border: 2px solid var(--texto-color);
     border-radius: 7px;
     color: var(--texto-color);
-    font-size: 15px;    
-    font-weight: 500;
-    transition: all .6s ease;  
-     
-}
-.blog-button:hover{
-    transform: translateY(-5px);
-    border: 2px solid var(--main-colo);
-    color: #6d6d6d;   
-    background: #cce6f4
-}
-
-.banner{
-    width: 100%;
-    padding: 0.5rem;
-    background-color: #242021 ;
-}
-
-.banner p{
-    font-size: 20px;
-    text-align: center;
     align-items: center;
-    letter-spacing: 1px;
-    color: #fff;
+    
 }
 
-.post{
+.kpi h1{
+    font-size: 24px;
+}
+
+.kpi h3{
+    font-size: 20px;
+}
+
+.container-grafico{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 2rem;
 }
 
-.card{
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 30%;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 2%;
-    margin: 1%}
-
-.card img{
-    max-width: 100%;
-    border-radius: 10px;
+.grafico-barra{
+    width: 50vw;
+    height: 50vh;
 }
 
-.card h3{
-    margin-top: 8px;
+.grafico-pizza{
+    width: 50vw;
+    height: 50vh;  
+}
+
+canvas{
+    width: auto;
 }

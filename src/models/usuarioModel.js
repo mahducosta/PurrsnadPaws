@@ -46,9 +46,21 @@ function insertResposta(id, select_interrese, select_pet) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+function cadastrar_resultado(resultado, id) {
+    var instrucaoSql = `
+    INSERT INTO quiz(resultado, fkUsuario) VALUES ('${resultado}', '${id}');
+`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
     selecionarUsuario,
-    insertResposta
+    insertResposta,
+    cadastrar_resultado
 };
+

@@ -4,32 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quiz | Purrs & paws</title>
+    <link rel="shortcut icon" href="favicon.ico">
     <script src="./js/sessao.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body onload="atualizarQuiz()">
     <header>
-        <a href="#" class="logo"> 
-        <img src="" alt="">
-        <span class="purrs">Purrs</span> <span class="paws">& Paws</span>
+        <a href="#" class="logo">
+            <img src="" alt="">
+            <span class="purrs">Purrs</span> <span class="paws">& Paws</span>
         </a>
         <ul class="nav">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">Sobre</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
             <li><a href="blog.html">Blog</a></li>
         </ul>
-        
+
         <div class="botoes">
             <button onclick="limparSessao()" class="cadastro">Sair</button>
         </div>
     </header>
 
-    
+
     <div id="div_pergunta"></div>
     <div id="div_respostas"></div>
+    <div id="div_resultado"></div>
     <button onclick="prox()">próximo</button>
+
 </body>
 
 </html>
@@ -61,7 +66,7 @@
                 },
                 {
                     categoria: "cachorro",
-                    texto: "passar um tempo com a família ou amigos"
+                    texto: "extrovertido"
                 },
 
             ]
@@ -207,27 +212,61 @@
             }
         }
 
-        // if (input_radio_0.checked) {
-        //     atualizarPontos(input_radio_0.value);
-        // } else if (input_radio_1.checked) {
-        //     atualizarPontos(input_radio_1.value);
-        // }
 
         indice_pergunta_atual++;
-        atualizarQuiz();
+        if (indice_pergunta_atual >= lista_de_questoes.length) {
+            exibirResultado();
+        } else {
+            atualizarQuiz();
+        }
     }
 
 
-    function atualizarPontos(tipo) {
+function atualizarPontos(tipo) {
         if (tipo == 'cachorro') {
             pontosCachorro++;
         } else {
             pontosGato++;
         }
 
+
+
         console.log(`
             Gato: ${pontosGato} 
             Cachorro: ${pontosCachorro} 
         `)
+
+
+}
+function exibirResultado() {
+    var idVar = sessionStorage.ID_USUARIO;
+    var resultadoVar;
+
+    if (pontosGato > pontosCachorro) {
+        resultadoVar = `Gato`
+        div_resultado.innerHTML = `Você se aproxima mais de ${resultadoVar} `;
+    } else if (pontosCachorro > pontosGato) {
+        resultadoVar = `Cachorro`
+        div_resultado.innerHTML = `Você se aproxima mais de ${resultadoVar}`;
+    } else {
+        resultadoVar = `Empate`
+        div_resultado.innerHTML = `Deu ${resultadoVar}`;
     }
+
+    fetch("/usuarios/resultadoQuiz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idServer: idVar,
+        resultadoServer: resultadoVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+      }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+}
 </script>

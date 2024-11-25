@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var aquarioModel = require("../models/dashboardModel");
 var id = 0;
 
 function autenticar(req, res) {
@@ -62,7 +62,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     }
 
-    else {
+    else { 
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, dtNasc, senha)
@@ -101,8 +101,31 @@ function cadastrar(req, res) {
             );
     }
 }
-// select_interrese, select_resposta
+
+function resultadoQuiz(req, res) {
+    var id = req.body.idServer;
+    var resultado = req.body.resultadoServer;
+
+        usuarioModel.cadastrar_resultado(resultado, id)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o insert do quiz! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );   
+        
+}
+
 module.exports = {
     autenticar,
     cadastrar,
+    resultadoQuiz
 }
