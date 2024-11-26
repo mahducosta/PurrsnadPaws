@@ -203,7 +203,7 @@ header{
 .card{
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 30%;
+    width: 20%;
     text-align: center;
     box-sizing: border-box;
     padding: 2%;
@@ -217,3 +217,15 @@ header{
 .card h3{
     margin-top: 8px;
 }
+.rodape {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    background-color: #9D8189 ;
+    padding: 1.5%;
+   
+    color: #ffff; 
+  
+  }
+

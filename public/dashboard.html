@@ -170,10 +170,8 @@ function atualizarGrafico() {
                     totalNao = dados[0].total
                     totalSim = dados[1].total
 
-                    // Exemplo de novos dados
                     VargraficoInteresse.data.datasets[0].data = [totalSim, totalNao];
 
-                    // Atualize o gráfico
                     VargraficoInteresse.update();
                 })
             })
