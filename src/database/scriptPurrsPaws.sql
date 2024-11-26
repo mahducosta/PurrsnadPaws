@@ -43,6 +43,7 @@ SELECT
     dtnasc, 
     TIMESTAMPDIFF(YEAR, dtnasc, CURDATE()) AS idade
     FROM usuario;
+    
 -- KPI IDADE    
 SELECT
     TRUNCATE(AVG(TIMESTAMPDIFF(YEAR, dtnasc, CURDATE())),0) as MediaIdade

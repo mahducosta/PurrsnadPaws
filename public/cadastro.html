@@ -81,6 +81,7 @@
                 </div>
               </div>
               <br>
+              <div id="mensagem_erro"> </div>
               <div class="campo">
               <button class="botao" onclick="cadastrar()">
                 <span>Cadastrar</span>
@@ -90,8 +91,7 @@
           </div>
         </div>
       </div>
-        <div id="div_erros_login">
-        </div> 
+         
       </div>
     </div>
   </div>
@@ -115,17 +115,33 @@
     var interesseVar = slt_interrese.value;
     var respostaVar = slt_resposta.value;
 
-    // Verificando se há algum campo em branco
-    // if (
-    //   nomeVar == "" ||
-    //   emailVar == "" ||
-    //   senhaVar == "" ||
-    //   confirmacaoSenhaVar == "" ||
-    //   dtNascVar == "" 
-    // ) {
-    //   cardErro.style.display = "block";
-    //   mensagem_erro.innerHTML =
-    //     "(Mensagem de erro para todos os campos em branco)";
+    var emailValido = false;
+    var senhaValido = false;
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      dtNascVar == "" 
+    ) {
+      mensagem_erro.innerHTML += `Prencha todos os campos`
+    
+    }
+
+    if (emailVar.includes("@") && emailVar.includes(".")) {
+      emailValido = true;
+      
+    } else {
+       mensagem_erro.innerHTML += `Email inválido`
+    }
+
+    if (senhaVar.length >= 8) {
+        senhaValido = true;
+      }else{
+        mensagem_erro.innerHTML += `Senha precisa no minimo de 8 caracteres`
+      }
+    
+    
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
