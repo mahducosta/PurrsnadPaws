@@ -1,8 +1,7 @@
 # Purrs-Paws ɞ 𓈒 ۫
 
 ## Descrição 
-OBJETIVO
-PORQUE
+Blog Informativo para tutores e apoiar a adoção de animais
 
 ## Como Utilizar ɞ 𓈒
 
