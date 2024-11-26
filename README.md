@@ -1,7 +1,7 @@
 # Purrs-Paws ɞ 𓈒 ۫
 
 ## Descrição 
-Blog Inforamativo para tutores e apoiar a adoção de animais
+Blog Informativo para tutores e apoiar a adoção de animais
 
 ## Como Utilizar ɞ 𓈒
 
